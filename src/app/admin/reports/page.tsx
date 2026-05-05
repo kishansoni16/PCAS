@@ -23,23 +23,23 @@ export default async function AdminReports() {
   });
 
   const totalStudents = studentsData.length;
-  const placedStudents = studentsData.filter(s => s.applications.some(a => a.status === 'SELECTED')).length;
+  const placedStudents = studentsData.filter((s: any) => s.applications.some((a: any) => a.status === 'SELECTED')).length;
   const placementRate = totalStudents > 0 ? Math.round((placedStudents / totalStudents) * 100) : 0;
   
-  const avgCgpa = totalStudents > 0 ? (studentsData.reduce((acc, s) => acc + s.cgpa, 0) / totalStudents).toFixed(2) : '0.00';
+  const avgCgpa = totalStudents > 0 ? (studentsData.reduce((acc: number, s: any) => acc + s.cgpa, 0) / totalStudents).toFixed(2) : '0.00';
   
-  const totalCompanies = new Set(jobsData.map(j => j.company)).size;
+  const totalCompanies = new Set(jobsData.map((j: any) => j.company)).size;
   
-  const highestPackage = jobsData.reduce((max, job) => {
+  const highestPackage = jobsData.reduce((max: number, job: any) => {
     const pkg = parseFloat(job.package.split(' ')[0]) || 0;
     return pkg > max ? pkg : max;
   }, 0);
 
   const branches = ['CSE', 'IT', 'ECE', 'EEE'];
-  const branchStats = branches.map(b => {
-    const bStudents = studentsData.filter(s => s.branch === b);
+  const branchStats = branches.map((b: any) => {
+    const bStudents = studentsData.filter((s: any) => s.branch === b);
     const bTotal = bStudents.length;
-    const bPlaced = bStudents.filter(s => s.applications.some(a => a.status === 'SELECTED')).length;
+    const bPlaced = bStudents.filter((s: any) => s.applications.some((a: any) => a.status === 'SELECTED')).length;
     return {
       branch: b,
       total: bTotal,
@@ -48,20 +48,20 @@ export default async function AdminReports() {
     };
   });
 
-  const jobs = jobsData.map(j => ({
+  const jobs = jobsData.map((j: any) => ({
     company: j.company,
     color: j.color,
     applicants: j._count.applications
-  })).sort((a, b) => b.applicants - a.applicants).slice(0, 5);
+  })).sort((a: any, b: any) => b.applicants - a.applicants).slice(0, 5);
 
-  const students = studentsData.map(s => ({
+  const students = studentsData.map((s: any) => ({
     name: s.user.name,
     branch: s.branch,
     cgpa: s.cgpa,
     applied: s.applications.length,
-    shortlisted: s.applications.filter(a => a.status === 'SHORTLISTED' || a.status === 'SELECTED').length,
-    placed: s.applications.filter(a => a.status === 'SELECTED').length
-  })).sort((a, b) => b.cgpa - a.cgpa);
+    shortlisted: s.applications.filter((a: any) => a.status === 'SHORTLISTED' || a.status === 'SELECTED').length,
+    placed: s.applications.filter((a: any) => a.status === 'SELECTED').length
+  })).sort((a: any, b: any) => b.cgpa - a.cgpa);
 
   return (
     <>
@@ -102,7 +102,7 @@ export default async function AdminReports() {
               <div key={j.company} className="bar-row">
                 <div className="bar-label" style={{ fontSize: '11px' }}>{j.company}</div>
                 <div className="bar-track">
-                  <div className="bar-fill" style={{ width: `${j.applicants > 0 ? (j.applicants / Math.max(...jobs.map(x => x.applicants), 1)) * 100 : 4}%`, background: j.color, minWidth: '20px' }}>
+                  <div className="bar-fill" style={{ width: `${j.applicants > 0 ? (j.applicants / Math.max(...jobs.map((x: any) => x.applicants), 1)) * 100 : 4}%`, background: j.color, minWidth: '20px' }}>
                     {j.applicants}
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export default async function AdminReports() {
               </tr>
             </thead>
             <tbody>
-              {students.map((s, i) => {
+              {students.map((s: any, i: number) => {
                 const cgpaClass = s.cgpa >= 8 ? 'cgpa-good' : s.cgpa >= 7 ? 'cgpa-ok' : 'cgpa-low';
                 return (
                   <tr key={i}>

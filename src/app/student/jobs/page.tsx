@@ -64,7 +64,7 @@ export default function StudentJobs() {
         </div>
       </div>
       <div className="card-grid">
-        {jobs.map(job => (
+        {jobs.map((job: any) => (
           <JobCard
             key={job.id}
             id={job.id}
