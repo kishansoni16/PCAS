@@ -18,7 +18,8 @@ export async function PUT(
 
     const { status } = await req.json();
 
-    if (!Object.values(ApplicationStatus).includes(status)) {
+    const validStatuses = ['APPLIED', 'SHORTLISTED', 'SELECTED', 'REJECTED'];
+    if (!validStatuses.includes(status)) {
       return NextResponse.json({ error: 'Invalid status' }, { status: 400 });
     }
 
