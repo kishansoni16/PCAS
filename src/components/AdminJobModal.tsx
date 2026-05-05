@@ -108,7 +108,7 @@ export default function AdminJobModal({ isOpen, onClose, recruiters, onSuccess }
                 }}
               >
                 <option value="">Select Recruiter Profile</option>
-                {recruiters.map(r => (
+                {recruiters.map((r: any) => (
                   <option key={r.id} value={r.id}>{r.companyName} ({r.user.name})</option>
                 ))}
               </select>
@@ -143,7 +143,7 @@ export default function AdminJobModal({ isOpen, onClose, recruiters, onSuccess }
             <div className="form-field form-full">
               <label>Eligible Branches</label>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '8px' }}>
-                {['CSE', 'IT', 'ECE', 'EEE', 'MECH', 'CIVIL'].map(b => (
+                {['CSE', 'IT', 'ECE', 'EEE', 'MECH', 'CIVIL'].map((b: string) => (
                   <button 
                     key={b} 
                     type="button"

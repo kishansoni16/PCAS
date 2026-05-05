@@ -83,7 +83,7 @@ export default async function StudentDashboard() {
               </thead>
               <tbody>
                 {recentApps.length === 0 && <tr><td colSpan={3} className="text-center text-sm text-gray-500 py-4">No applications yet</td></tr>}
-                {recentApps.map((app) => (
+                {recentApps.map((app: any) => (
                   <tr key={app.id}>
                     <td><b>{app.job.company}</b></td>
                     <td>{app.job.title}</td>
@@ -111,7 +111,7 @@ export default async function StudentDashboard() {
               </thead>
               <tbody>
                 {topJobs.length === 0 && <tr><td colSpan={3} className="text-center text-sm text-gray-500 py-4">No new eligible jobs</td></tr>}
-                {topJobs.map((job) => (
+                {topJobs.map((job: any) => (
                   <tr key={job.id}>
                     <td>
                       <b>{job.company}</b> <span style={{ fontSize: '11px', color: 'var(--text2)' }}>{job.title}</span>

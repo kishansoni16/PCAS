@@ -62,7 +62,7 @@ export default function AdminStudents() {
             </thead>
             <tbody>
               {students.length === 0 && <tr><td colSpan={7} className="text-center text-sm text-gray-500 py-4">No students registered yet</td></tr>}
-              {students.map(s => {
+              {students.map((s: any) => {
                 const cgpaClass = s.cgpa >= 8 ? 'cgpa-good' : s.cgpa >= 7 ? 'cgpa-ok' : 'cgpa-low';
                 const placed = s.applications && s.applications.some((a: any) => a.status === 'SELECTED');
                 return (

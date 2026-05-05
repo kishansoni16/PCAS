@@ -81,7 +81,7 @@ export default async function AdminReports() {
         <div className="form-card">
           <div style={{ fontFamily: 'var(--font2)', fontSize: '15px', fontWeight: 600, marginBottom: '16px' }}>Branch-wise Placement Rate</div>
           <div className="bar-chart">
-            {branchStats.map(b => (
+            {branchStats.map((b: any) => (
               <div key={b.branch} className="bar-row">
                 <div className="bar-label">{b.branch}</div>
                 <div className="bar-track">
@@ -98,7 +98,7 @@ export default async function AdminReports() {
         <div className="form-card">
           <div style={{ fontFamily: 'var(--font2)', fontSize: '15px', fontWeight: 600, marginBottom: '16px' }}>Company-wise Applications</div>
           <div className="bar-chart">
-            {jobs.map(j => (
+            {jobs.map((j: any) => (
               <div key={j.company} className="bar-row">
                 <div className="bar-label" style={{ fontSize: '11px' }}>{j.company}</div>
                 <div className="bar-track">

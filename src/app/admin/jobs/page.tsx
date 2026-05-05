@@ -94,7 +94,7 @@ export default function AdminJobs() {
             </thead>
             <tbody>
               {jobs.length === 0 && <tr><td colSpan={8} className="text-center text-sm text-gray-500 py-4">No jobs posted yet</td></tr>}
-              {jobs.map(j => (
+              {jobs.map((j: any) => (
                 <tr key={j.id}>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

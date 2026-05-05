@@ -42,7 +42,7 @@ export default function JobCard({
       
       <div className="job-tags">
         <span className="job-tag">{type}</span>
-        {branches.map(b => <span key={b} className="job-tag">{b}</span>)}
+        {branches.map((b: any) => <span key={b} className="job-tag">{b}</span>)}
       </div>
       
       <div className="job-eligibility">
