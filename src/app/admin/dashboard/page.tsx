@@ -63,7 +63,7 @@ export default async function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {recentApps.length > 0 ? recentApps.map((a) => (
+              {recentApps.length > 0 ? recentApps.map((a: any) => (
                 <tr key={a.id}>
                   <td><b>{a.student.user.name}</b></td>
                   <td>{a.job.company}</td>
@@ -91,7 +91,7 @@ export default async function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {activeDrives.length > 0 ? activeDrives.map((j) => (
+              {activeDrives.length > 0 ? activeDrives.map((j: any) => (
                 <tr key={j.id}>
                   <td><b>{j.company}</b></td>
                   <td>{j.title}</td>

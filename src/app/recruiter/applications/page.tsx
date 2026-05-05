@@ -63,7 +63,7 @@ export default function RecruiterApplications() {
             </thead>
             <tbody>
               {applications.length === 0 && <tr><td colSpan={7} className="text-center text-sm text-gray-500 py-4">No applications received</td></tr>}
-              {applications.map((a) => {
+              {applications.map((a: any) => {
                 const cgpaClass = a.student.cgpa >= 8 ? 'cgpa-good' : a.student.cgpa >= 7 ? 'cgpa-ok' : 'cgpa-low';
                 return (
                   <tr key={a.id}>
