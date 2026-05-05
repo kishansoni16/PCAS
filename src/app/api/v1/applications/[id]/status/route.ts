@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { ApplicationStatus } from '@prisma/client';
+// Remove Prisma enum import for build stability
+// import { ApplicationStatus } from '@prisma/client';
 
 export async function PUT(
   req: NextRequest,
